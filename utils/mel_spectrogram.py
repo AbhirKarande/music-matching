@@ -1,9 +1,9 @@
 import librosa
 import librosa.display
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
-def create_melspectrogram(audio_path, save_path=None):
+def create_mel_spectrogram(audio_path, save_path=None):
     # Load the audio file
     y, sr = librosa.load(audio_path)
     
@@ -25,10 +25,18 @@ def create_melspectrogram(audio_path, save_path=None):
         sr=sr,
         x_axis='time',
         y_axis='mel',
-        fmax=8000
+        cmap='viridis'
     )
+    plt.colorbar(format='%+2.0f dB')
+    plt.title('Mel Spectrogram')
     
+    # Save or show the plot
     if save_path:
         plt.savefig(save_path)
         plt.close()
-    return mel_spect_db
+    else:
+        plt.show()
+
+# Example usage
+if __name__ == "__main__":
+    create_mel_spectrogram("test.mp3", "mel_spectrogram.png")
