@@ -135,6 +135,6 @@ def process_tracks_file(input_path, output_path):
     print(f"Failed to match: {failed_count} tracks")
 
 if __name__ == "__main__":
-    input_path = "missing_songs.txt"
-    output_path = "spotify_urls_2.txt"
+    input_path = "remaining_songs.txt"
+    output_path = "spotify_urls_3.txt"
     process_tracks_file(input_path, output_path)

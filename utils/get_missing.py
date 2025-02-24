@@ -1,13 +1,25 @@
-# Read Spotify URLs file and extract song identifiers (before the tab)
-with open('spotify_urls_2.txt', 'r') as f:
-    spotify_songs = {line.split('\t')[0].strip() for line in f}
-
-# Compare with missing songs and write remaining entries
-with open('missing_songs.txt', 'r') as f_in, \
-     open('remaining_songs.txt', 'w') as f_out:
+def merge_spotify_files():
+    # Files to merge
+    files = [
+        'spotify_urls_so_far.txt',
+        'spotify_urls_2.txt',
+        'spotify_urls_3.txt'
+    ]
     
-    for line in f_in:
-        stripped_line = line.strip()
-        # Check if this exact song entry exists in Spotify URLs (without URL)
-        if stripped_line not in spotify_songs:
-            f_out.write(line)
+    # Set to store unique lines
+    unique_lines = set()
+    
+    # Read each file and add lines to set
+    for file_path in files:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                # Strip whitespace and add to set
+                unique_lines.add(line.strip())
+    
+    # Write unique lines to new file
+    with open('spotify_urls_merged.txt', 'w', encoding='utf-8') as f:
+        for line in sorted(unique_lines):
+            f.write(line + '\n')
+
+if __name__ == "__main__":
+    merge_spotify_files()
