@@ -1,2 +1,3 @@
 utils/downloads/*.mp3
+utils/downloads/mel_spectrogram/*.png
 +.env
