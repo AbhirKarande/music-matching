@@ -50,9 +50,9 @@ def process_mp3_file(mp3_file, mel_dir):
     print(f"Converting {mp3_file} -> {output_path}")
     create_mel_spectrogram(mp3_file, output_path)
     
-    # Delete the original file after processing
-    os.remove(mp3_file)
-    print(f"Deleted original file: {mp3_file}")
+    # # Delete the original file after processing
+    # os.remove(mp3_file)
+    # print(f"Deleted original file: {mp3_file}")
 
 if __name__ == "__main__":
     # Define the downloads directory. Updating this to the home Downloads folder.
