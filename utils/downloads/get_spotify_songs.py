@@ -64,7 +64,8 @@ def download_urls_from_file(file_path):
 
 if __name__ == "__main__":
     # Use the merged Spotify URLs file instead of the clean one.
-    file_path = "spotify_urls_merged.txt"
+    #IMPORTANT: replace file_path value with your designated song list file!!!
+    file_path = "spotify_urls_merged_1.txt"
     urls = download_urls_from_file(file_path)
     # Use a ThreadPoolExecutor to download concurrently.
     with ThreadPoolExecutor(max_workers=5) as executor:
